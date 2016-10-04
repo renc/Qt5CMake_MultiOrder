@@ -6,6 +6,10 @@
 class QScrollArea;
 class QGridLayout;
 class QVBoxLayout;
+class QScrollBar;
+class QMenu;
+class QAction;
+class SignInDialog;
 
 class MainWindow : public QMainWindow
 {
@@ -13,17 +17,25 @@ class MainWindow : public QMainWindow
 
 public:
 	MainWindow();
-
+	void createActions();
+	void createMenus();
 	void addOrder();
 
 private slots:
+	void onAccountAction();
+	void onAboutAction();
 		void onAddOrder();
 		void onPlaceOrder();
 
 private:
-	QScrollArea *scrollArea;
-	//QVBoxLayout *scrollWidgetLayout;
+	QScrollArea *scrollArea; 
+	QScrollBar *scrollBar;
 	QGridLayout *scrollWidgetLayout;
+
+	QMenu *fileMenu;
+	QMenu *helpMenu;
+	QAction *accountAct;
+	QAction *aboutAct;
 }; 
 
 #endif //MAINWINDOW_H
